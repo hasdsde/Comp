@@ -16,7 +16,14 @@
     </properties>
 
     <dependencies>
-<!--    代码生成器    -->
+        <!--    代码生成器    -->
+        <!-- https://mvnrepository.com/artifact/io.swagger/swagger-annotations -->
+        <dependency>
+            <groupId>io.swagger</groupId>
+            <artifactId>swagger-annotations</artifactId>
+            <version>1.6.2</version>
+        </dependency>
+
         <!--      mysql依赖-->
         <dependency>
             <groupId>mysql</groupId>
