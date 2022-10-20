@@ -2,9 +2,9 @@ package cn.hasd.comp.controller;
 
 import cn.hasd.comp.entity.Student;
 import cn.hasd.comp.mapper.StudentMapper;
-import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
 
 import javax.annotation.Resource;
 import java.util.List;
@@ -17,7 +17,7 @@ import java.util.List;
  * @author hasd
  * @since 2022-10-19
  */
-@Controller
+@RestController
 @RequestMapping("/student")
 public class StudentController {
     @Resource
