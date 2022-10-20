@@ -3,6 +3,7 @@ package cn.hasd.comp.controller;
 import cn.hasd.comp.entity.Student;
 import cn.hasd.comp.mapper.StudentMapper;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -23,8 +24,13 @@ public class StudentController {
     @Resource
     StudentMapper studentMapper;
 
-    @GetMapping("/comp1")
-    public List<Student> CompA() {
-        return studentMapper.compA();
+    @GetMapping("/all")
+    public List<Student> SelectAll() {
+        return studentMapper.selectAll();
+    }
+
+    @GetMapping("/compA/{instructor}")
+    public List<Student> CompA(@PathVariable("instructor") String instructor) {
+        return studentMapper.compA(instructor);
     }
 }

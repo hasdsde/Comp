@@ -17,5 +17,7 @@ import java.util.List;
 @Mapper
 public interface StudentMapper extends BaseMapper<Student> {
 
-    List<Student> compA();
+    List<Student> selectAll();
+
+    List<Student> compA(String instructor);
 }
