@@ -2,13 +2,12 @@ package cn.hasd.comp.controller;
 
 import cn.hasd.comp.entity.Student;
 import cn.hasd.comp.mapper.StudentMapper;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
+import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 
 /**
  * <p>
@@ -24,16 +23,19 @@ public class StudentController {
     @Resource
     StudentMapper studentMapper;
 
+    //后台，获取全部信息
     @GetMapping("/all")
     public List<Student> SelectAll() {
         return studentMapper.selectAll();
     }
 
+    //比赛A，随机获取四个信息
     @GetMapping("/compA/{instructor}")
     public List<Student> CompA(@PathVariable("instructor") String instructor) {
         return studentMapper.compA(instructor);
     }
 
+    //比赛B，随机获取八个信息
     @GetMapping("/CompB/{instructor}")
     public List<Integer> CompB(@PathVariable("instructor") String instructor) {
         List<Integer> list1 = studentMapper.selectFourstudent(instructor);
@@ -42,5 +44,13 @@ public class StudentController {
             list1.add(integer);
         }
         return list1;
+    }
+
+    @PostMapping("/CompBList")
+    public String CompBlist(@RequestBody Map<String, Object> map) {
+        ArrayList<Integer> list = ArrayList.class.cast(map.get("ids"));
+        for (Integer integer : list) {
+            System.out.println(integer);
+        }
     }
 }
