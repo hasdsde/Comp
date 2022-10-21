@@ -13,4 +13,19 @@
         order by rand()
         limit 3
     </select>
+    <select id="selectFourstudent" resultType="Integer">
+        select no
+        from student
+        where instructor = #{arg}
+        order by rand()
+        limit 4;
+    </select>
+    <select id="selectNotYoutStudent" resultType="Integer">
+        select no
+        from student
+        where instructor != #{arg}
+        order by rand()
+        limit 4;
+    </select>
+
 </mapper>

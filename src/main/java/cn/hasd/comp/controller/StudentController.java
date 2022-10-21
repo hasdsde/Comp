@@ -33,4 +33,14 @@ public class StudentController {
     public List<Student> CompA(@PathVariable("instructor") String instructor) {
         return studentMapper.compA(instructor);
     }
+
+    @GetMapping("/CompB/{instructor}")
+    public List<Integer> CompB(@PathVariable("instructor") String instructor) {
+        List<Integer> list1 = studentMapper.selectFourstudent(instructor);
+        List<Integer> list2 = studentMapper.selectNotYoutStudent(instructor);
+        for (Integer integer : list2) {
+            list1.add(integer);
+        }
+        return list1;
+    }
 }
