@@ -27,5 +27,10 @@
         order by rand()
         limit 4;
     </select>
+    <select id="selectYi" resultType="cn.hasd.comp.entity.Student">
+        select *
+        from student
+        where no = #{arg0}
+    </select>
 
 </mapper>

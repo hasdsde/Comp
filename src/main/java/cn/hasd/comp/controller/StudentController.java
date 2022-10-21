@@ -46,11 +46,14 @@ public class StudentController {
         return list1;
     }
 
+    //获取数组，返回信息
     @PostMapping("/CompBList")
-    public String CompBlist(@RequestBody Map<String, Object> map) {
+    public List<Student> CompBlist(@RequestBody Map<String, Object> map) {
         ArrayList<Integer> list = ArrayList.class.cast(map.get("ids"));
+        ArrayList<Student> students = new ArrayList<>();
         for (Integer integer : list) {
-            System.out.println(integer);
+            students.add(studentMapper.selectYi(integer.toString()));
         }
+        return students;
     }
 }
