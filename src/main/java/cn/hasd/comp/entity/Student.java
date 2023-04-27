@@ -71,5 +71,10 @@ public class Student implements Serializable {
     @ApiModelProperty("性别")
     private String sex;
 
+    private String major;
+    private String friends;
+    private String xi;
+    private String future;
+
 
 }

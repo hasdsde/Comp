@@ -21,9 +21,9 @@ public interface StudentMapper extends BaseMapper<Student> {
 
     List<Student> compA(String instructor);
 
-    List<Integer> selectFourstudent(String instructor);
+    List<Student> selectFourstudent(String instructor);
 
-    List<Integer> selectNotYoutStudent(String instructor);
+    List<Student> selectNotYoutStudent(String instructor);
 
     Student selectYi(String toString);
 }

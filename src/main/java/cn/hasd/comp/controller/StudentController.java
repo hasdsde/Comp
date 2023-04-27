@@ -37,10 +37,10 @@ public class StudentController {
 
     //比赛B，随机获取八个信息
     @GetMapping("/CompB/{instructor}")
-    public List<Integer> CompB(@PathVariable("instructor") String instructor) {
-        List<Integer> list1 = studentMapper.selectFourstudent(instructor);
-        List<Integer> list2 = studentMapper.selectNotYoutStudent(instructor);
-        for (Integer integer : list2) {
+    public List<Student> CompB(@PathVariable("instructor") String instructor) {
+        List<Student> list1 = studentMapper.selectFourstudent(instructor);
+        List<Student> list2 = studentMapper.selectNotYoutStudent(instructor);
+        for (Student integer : list2) {
             list1.add(integer);
         }
         return list1;
